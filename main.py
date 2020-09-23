@@ -4,9 +4,7 @@ def TextboxCount(lines): #this function takes as input a list of lines, and retu
     n = [] #character count for each line
     l = len(lines) #number of lines
     for x in lines:
-        n.append(len(x)) #is off by 1 for every line due to counting the line break
-    for i in range(l):
-        n[i] -= 1 #corrects line breaks
+        n.append(len(x)-1) #is off by 1 for every line due to counting the line break
     return n, l;
 
 def TextboxLength(lines): #function takes lines as input and times how long the textbox will last
@@ -18,14 +16,14 @@ def TextboxLength(lines): #function takes lines as input and times how long the 
     elif l == 2:
         chara_time_body = 1 + 2*4 + 3 + (n[0]-5)*2 #time for charas on the 1st line
         chara_time_tail = 1 + (n[1]-2)*2 #time for the charas on the 2nd line to appear
-        band_timer = 2-((chara_time_body-1) * 0.04) #band timer that does not account for the >= 1 requirement. change ctb-1 to -2 if decrements on the qf the final chara starts to appear
+        band_timer = 2-((chara_time_body-1) * 0.04) #band timer that does not account for the >= 1 requirement
         remaining_band_timer = max(1.0, band_timer) #what the band timer is at on the QF it is allowed to go below 1 1QF frame before the prev line is complete
         band_time_togo = ceil((remaining_band_timer+0.109)/0.04)
         time = chara_time_body + max(chara_time_tail, band_time_togo)
     else:
         chara_time_body = 1 + 2*4 + 3 + 1 + (n[0]+n[1]-7)*2 #time for charas on the 1st and 2nd line
         chara_time_tail = 1 + (n[2]-2)*2 #time for the charas on the 2nd line to appear
-        band_timer = 3-((chara_time_body-1) * 0.04) #band timer that does not account for the >= 1 requirement. change ctb-1 to -2 if decrements on the qf the final chara starts to appear
+        band_timer = 3-((chara_time_body-1) * 0.04) #band timer that does not account for the >= 1 requirement
         remaining_band_timer = max(1.0, band_timer) #what the band timer is at on the QF it is allowed to go below 1 1QF frame before the prev line is complete
         band_time_togo = ceil((remaining_band_timer+0.109)/0.04)
         time = chara_time_body + max(chara_time_tail, band_time_togo)
@@ -35,7 +33,6 @@ def TextboxLength(lines): #function takes lines as input and times how long the 
 
 def LanguageTime(contents):
     total_time = 0
-    print(contents)
     curr_lines = [] #represents the textbox currently being read
     for i in range(0, len(contents)): #iterate through all the lines
         if contents[i][0] != "/":    #test if we are in a textbox or at the end of one
