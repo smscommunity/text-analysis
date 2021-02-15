@@ -6,3 +6,5 @@ French: 8700.0
 English: 8703.0  
 Spanish: 8765.0  
 German: 8932.0  
+
+Numbers are still not 100% certain for Japanese.
