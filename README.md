@@ -1,7 +1,5 @@
 # SMS Text Analysis
 
-*(Made by Jpep and Toburr)*
-
 ## Any% Text Length
 *(in quarter-frames)*  
 Italian: **7326.0**  
@@ -64,3 +62,10 @@ textbox twice can lead to different results.
 For instance, a textbox that is 3QF long and starts on Frame 1, QF 1 will end on Frame 1, QF 3. So it can be closed at the beginning of Frame 2. But
 if it starts on QF3 instead, then it can only be closed starting on Frame 3.
 The average timeloss due to this is 1.5QF.
+
+## Acknowledgements
+To Jpep for putting this together. His own acknowledgements:
+
+Thank you to Toburr for providing better code & fixing multiple mistakes in the transcripts! His code gives the results listed at the top.
+
+Huge thanks to Noki for taking the time to explain all the PAL text mechanics to me, to Dobby for his vids containing all the Spanish and German text which saved a ton of time, and to Neb for his work on the Japanese and English transcripts :)
